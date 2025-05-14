@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../models/sales.php';
+?>
+
 <html>
 
 <head>
@@ -13,7 +17,7 @@
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="shop.php">shop</a></li>
+            <li><a href="sales.php">shop</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
