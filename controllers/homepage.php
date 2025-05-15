@@ -4,7 +4,12 @@ include_once __DIR__ . '/../views/homepage.php';
 
 class HomepageController
 {
+    public static function execute()
+    {
 
+    }
 }
+
+HomepageController::execute();
 
 ?>
