@@ -8,7 +8,7 @@ class DBConnection
     private $password = '';
     private $connection;
 
-    public function connect()
+    public function connect(): PDO
     {
         try {
             $this->connection = new PDO("mysql:host={$this->host};dbname={$this->dbname}", $this->username, $this->password);
