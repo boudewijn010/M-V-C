@@ -10,10 +10,10 @@ require_once __DIR__ . '/../models/sales.php';
 </head>
 
 <body>
-    <header>
-        <img src="\img\webshop-icon.jpg" alt="Logo" class="logo">
-        <img src="\img\add-to-card.webp" alt="Add to Cart" class="add-to-cart">
-    </header>
+<header>
+    <img src="/img/webshop-icon.jpg" alt="Logo" class="logo">
+    <img src="/img/add-to-card.webp" alt="Add to Cart" class="add-to-cart">
+</header>
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
