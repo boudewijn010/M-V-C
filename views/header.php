@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../models/sales.php';
 ?>
 
-<html>
+<html> ja
 
 <head>
     <title>My Web Page</title>
