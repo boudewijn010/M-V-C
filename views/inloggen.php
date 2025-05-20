@@ -10,17 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $db = new DBConnection();
     $conn = $db->connect();
 
-    // Zoek gebruiker op basis van e-mail
     $stmt = $conn->prepare("SELECT * FROM gebruikers WHERE email = :email");
     $stmt->bindParam(":email", $email);
     $stmt->execute();
     $gebruiker = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($gebruiker && password_verify($password, $gebruiker["wachtwoord"])) {
-        // Inloggen gelukt
+    if ($gebruiker && password_verify($password, $gebruiker["password"])) {
         session_start();
         $_SESSION["gebruiker_id"] = $gebruiker["id"];
-        header("Location: dashboard.php"); // Pas aan naar jouw dashboard/bestemming
+        header("Location: welkom.php");
         exit;
     } else {
         $error = "Ongeldige e-mail of wachtwoord.";
