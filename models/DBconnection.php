@@ -29,7 +29,7 @@ $db = new DBConnection();
 $conn = $db->connect();
 
 // Haal alle data op uit de tabel 'test_db'
-$stmt = $conn->query("SELECT * FROM test_db");
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-print_r($result);
+// $stmt = $conn->query("SELECT * FROM test_db");
+// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// print_r($result);
 ?>
