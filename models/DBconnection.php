@@ -3,7 +3,7 @@
 class DBConnection
 {
     private $host = 'localhost';
-    private $dbname = 'm-v-c'; // <-- dit is de database!
+    private $dbname = 'm-v-c';
     private $username = 'root';
     private $password = '';
     private $connection;
