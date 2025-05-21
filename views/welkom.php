@@ -36,6 +36,10 @@
 </head>
 
 <body>
+    <?php
+    require_once("header.php");
+    ?>
+
     <div class="container">
         <h1>Welkom!</h1>
         <p>Je bent succesvol ingelogd.</p>

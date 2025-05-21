@@ -6,11 +6,14 @@ $error = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"] ?? '';
     $password = $_POST["password"] ?? '';
+    $password2 = $_POST["password2"] ?? '';
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Ongeldig e-mailadres.";
     } elseif (strlen($password) < 6) {
         $error = "Wachtwoord moet minimaal 6 tekens zijn.";
+    } elseif ($password !== $password2) {
+        $error = "Wachtwoorden komen niet overeen.";
     } else {
         $db = new DBConnection();
         $conn = $db->connect();
@@ -45,7 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="heading">Sign up</div>
     <form action="" method="post" class="form">
         <input required class="input" type="email" name="email" id="email" placeholder="E-mail">
-        <input required class="input" type="password" name="password" id="password" placeholder="Password">
+        <input required class="input" type="password" name="password" id="password" placeholder="Wachtwoord">
+        <input required class="input" type="password" name="password2" id="password2" placeholder="Herhaal wachtwoord">
         <input class="login-button" type="submit" value="Sign up">
         <div class="register-link">
             <a class="maken" href="inloggen.php">Al een account? Log in!</a>

@@ -21,4 +21,6 @@ class HomepageView
 HTML;
     }
 }
+
+HomepageView::render();
 ?>
