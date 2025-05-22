@@ -34,6 +34,9 @@ class HomepageView
                 <li>✔️ Uitstekende klantenservice</li>
             </ul>
         </section>
+        <?php
+require_once("footer.php");
+?>
 </main>
 </body>
 </html>
@@ -41,6 +44,5 @@ HTML;
     }
 }
 
-HomepageView::render();
-require_once("footer.php");
+
 ?>
