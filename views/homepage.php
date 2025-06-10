@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoporia - Welkom</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- <link rel="stylesheet" type="text/css" href="styles/styles.css"> -->
 </head>
 
 
@@ -19,7 +19,7 @@ class HomepageView
 
         <head>
             <title>Shoporia</title>
-            <link rel="stylesheet" type="text/css" href="/views/styles.css">
+            <link rel="stylesheet" type="text/css" href="/M-V-C-1/styles/styles.css">
         </head>
 
         <body>
