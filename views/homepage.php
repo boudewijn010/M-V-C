@@ -3,7 +3,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoporia - Welkom</title>
-    <!-- <link rel="stylesheet" type="text/css" href="styles/styles.css"> -->
 </head>
 
 
@@ -12,7 +11,7 @@ class HomepageView
 {
     public static function render()
     {
-        // require_once("header.php");
+        require_once("header.php");
         ?>
         <!DOCTYPE html>
         <html>
