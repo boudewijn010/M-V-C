@@ -12,5 +12,4 @@ class HomepageController
 
 HomepageController::execute();
 
-hoi
 ?>
