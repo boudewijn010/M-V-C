@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../models/DBconnection.php';
-// require_once __DIR__ . '/../models/account-maken.php';
+require_once __DIR__ . '/../models/account-maken.php';
 
 class accountmakenView
 {
