@@ -1,20 +1,20 @@
 <?php
-require_once("../models/DBconnection.php");
+require_once(__DIR__ . "/DBconnection.php");
 
-$error = "";
+class AccountModel
+{
+    public static function register($email, $password, $password2)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return "Ongeldig e-mailadres.";
+        }
+        if (strlen($password) < 6) {
+            return "Wachtwoord moet minimaal 6 tekens zijn.";
+        }
+        if ($password !== $password2) {
+            return "Wachtwoorden komen niet overeen.";
+        }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST["email"] ?? '';
-    $password = $_POST["password"] ?? '';
-    $password2 = $_POST["password2"] ?? '';
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Ongeldig e-mailadres.";
-    } elseif (strlen($password) < 6) {
-        $error = "Wachtwoord moet minimaal 6 tekens zijn.";
-    } elseif ($password !== $password2) {
-        $error = "Wachtwoorden komen niet overeen.";
-    } else {
         $db = new DBConnection();
         $conn = $db->connect();
 
@@ -24,19 +24,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->execute();
 
         if ($stmt->fetch()) {
-            $error = "E-mailadres is al in gebruik.";
+            return "E-mailadres is al in gebruik.";
+        }
+
+        // Voeg gebruiker toe
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $conn->prepare("INSERT INTO gebruikers (email, wachtwoord) VALUES (:email, :wachtwoord)");
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":wachtwoord", $hashedPassword);
+        if ($stmt->execute()) {
+            return ""; // Geen fout, registratie gelukt
         } else {
-            // Voeg gebruiker toe
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            $stmt = $conn->prepare("INSERT INTO gebruikers (email, wachtwoord) VALUES (:email, :wachtwoord)");
-            $stmt->bindParam(":email", $email);
-            $stmt->bindParam(":wachtwoord", $hashedPassword);
-            if ($stmt->execute()) {
-                header("Location: inloggen.php");
-                exit;
-            } else {
-                $error = "Er is iets misgegaan. Probeer opnieuw.";
-            }
+            return "Er is iets misgegaan. Probeer opnieuw.";
         }
     }
 }

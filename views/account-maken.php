@@ -1,11 +1,10 @@
 <?php
 require_once __DIR__ . '/../models/DBconnection.php';
-require_once __DIR__ . '/../views/account-maken.php';
-require_once __DIR__ . '/../models/account-maken.php';
+// require_once __DIR__ . '/../models/account-maken.php';
 
-class accountmakenview
+class accountmakenView
 {
-    public static function render()
+    public static function render($error = '')
     {
         ?>
         <link rel="stylesheet" href="/M-V-C-1/styles/inloggen.css">

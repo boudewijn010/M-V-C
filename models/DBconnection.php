@@ -17,8 +17,12 @@ class DBConnection
                 $this->password
             );
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // Debug: Verbinding gelukt
+            error_log("DB Verbinding succesvol met {$this->host}/{$this->dbname}");
             return $this->connection;
         } catch (PDOException $e) {
+            // Debug: Foutmelding loggen
+            error_log("DB Fout: " . $e->getMessage());
             die("Database verbinding mislukt: " . $e->getMessage());
         }
     }
@@ -28,8 +32,4 @@ class DBConnection
 $db = new DBConnection();
 $conn = $db->connect();
 
-// Haal alle data op uit de tabel 'test_db'
-// $stmt = $conn->query("SELECT * FROM test_db");
-// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// print_r($result);
 ?>
