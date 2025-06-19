@@ -25,7 +25,7 @@ session_start();
         <nav>
             <ul>
                 <li><a href="homepage.php">Home</a></li>
-                <li><a href="sales.php">shop</a></li>
+                <li><a href="shop.php">shop</a></li>
                 <li><a href="about-us.php">About Us</a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>
