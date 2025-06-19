@@ -6,7 +6,7 @@ session_start();
 
 <head>
     <title>My Web Page</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css">
 </head>
 
 <body>
