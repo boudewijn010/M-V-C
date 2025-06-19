@@ -7,9 +7,23 @@ class accountmakenView
     public static function render($error = '')
     {
         ?>
-        <link rel="stylesheet" href="/M-V-C/styles/inloggen.css">
+        <!DOCTYPE html>
+        <html lang="nl">
+        <head>
+            <meta charset="UTF-8">
+            <title>Account aanmaken</title>
+            <link rel="stylesheet" href="/M-V-C/styles/inloggen.css">
+        </head>
+        <body>
+        <div style="position: absolute; top: 24px; left: 24px; z-index: 10;">
+            <button type="button"
+                    onclick="window.history.back()"
+                    style="background: #111; color: #fff; border: none; border-radius: 20px; padding: 8px 22px; cursor: pointer; font-weight: 600;">
+                &#8592; Back
+            </button>
+        </div>
         <div class="container">
-            <div class="heading">Sign up</div>
+            <div class="heading">Account aanmaken</div>
             <form action="" method="post" class="form">
                 <input required class="input" type="email" name="email" id="email" placeholder="E-mail">
                 <input required class="input" type="password" name="password" id="password" placeholder="Wachtwoord">
@@ -23,6 +37,8 @@ class accountmakenView
                 <?php endif; ?>
             </form>
         </div>
+        </body>
+        </html>
         <?php
     }
 }

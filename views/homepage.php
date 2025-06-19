@@ -3,7 +3,6 @@ class HomepageView
 {
     public static function render()
     {
-        require_once("header.php");
         ?>
         <!DOCTYPE html>
         <html>
@@ -12,7 +11,9 @@ class HomepageView
             <title>Shoporia</title>
             <link rel="stylesheet" type="text/css" href="../styles/styles.css">
         </head>
-
+        <?php
+        require_once("header.php");
+        ?>
         <body>
 
             <main>

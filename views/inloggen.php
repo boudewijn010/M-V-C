@@ -4,10 +4,21 @@ class inlogView
     public static function render($error = '')
     {
         ?>
-
+        <!DOCTYPE html>
+        <html lang="nl">
         <head>
+            <meta charset="UTF-8">
+            <title>Inloggen</title>
             <link rel="stylesheet" href="/M-V-C/styles/inloggen.css">
         </head>
+        <body>
+        <div style="position: absolute; top: 24px; left: 24px; z-index: 10;">
+            <button type="button"
+                    onclick="window.history.back()"
+                    style="background: #111; color: #fff; border: none; border-radius: 20px; padding: 8px 22px; cursor: pointer; font-weight: 600;">
+                &#8592; Back
+            </button>
+        </div>
         <div class="container">
             <div class="heading">Sign In</div>
             <form action="" method="post" class="form">
@@ -22,6 +33,8 @@ class inlogView
                 <?php endif; ?>
             </form>
         </div>
+        </body>
+        </html>
         <?php
     }
 }

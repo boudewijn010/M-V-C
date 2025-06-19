@@ -7,7 +7,7 @@ class inlogcontroller
 {
     public static function execute()
     {
-        inlogView::render();
+
     }
 }
 
