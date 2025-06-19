@@ -7,7 +7,7 @@ class accountmakenView
     public static function render($error = '')
     {
         ?>
-        <link rel="stylesheet" href="/M-V-C-1/styles/inloggen.css">
+        <link rel="stylesheet" href="/M-V-C/styles/inloggen.css">
         <div class="container">
             <div class="heading">Sign up</div>
             <form action="" method="post" class="form">

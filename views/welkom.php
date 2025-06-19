@@ -1,50 +1,29 @@
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
     <meta charset="UTF-8">
     <title>Welkom</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            text-align: center;
-            padding-top: 100px;
-        }
-
-        .container {
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            display: inline-block;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/M-V-C/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="/M-V-C/styles/welkom.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        window.onload = function() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        };
+    </script>
 </head>
-
 <body>
-    <?php
-    require_once("header.php");
-    ?>
-
-    <div class="container">
-        <h1>Welkom!</h1>
-        <p>Je bent succesvol ingelogd.</p>
-        <a href="logout.php">Uitloggen</a>
-    </div>
+<?php
+require_once("header.php");
+?>
+<div class="container">
+    <h1>Welkom!</h1>
+    <p>Je bent succesvol ingelogd.</p>
+    <a href="logout.php">Uitloggen</a>
+</div>
 </body>
-
 </html>

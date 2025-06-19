@@ -1,0 +1,22 @@
+/* styles/welkom.css */
+.container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    background: #fff;
+}
+
+h1 {
+    color: #2a2a2a;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
