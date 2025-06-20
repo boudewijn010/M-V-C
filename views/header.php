@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../models/sales.php';
-session_start();
 ?>
 <header>
     <div class="homepage-buttons">
@@ -9,6 +8,7 @@ session_start();
         <?php endif; ?>
         <a href="/M-V-C/controllers/inloggen.php" class="button">Inloggen</a>
         <a href="/M-V-C/controllers/account-maken.php" class="button">Account aanmaken</a>
+        <a href="/M-V-C/controllers/cart.php" class="button">Shopping Cart</a>
     </div>
     <nav>
         <ul>
