@@ -4,6 +4,7 @@ session_start();
 
 class CartView
 {
+
     public static function render()
     {
         $cart = $_SESSION['cart'] ?? [];
@@ -13,7 +14,7 @@ class CartView
         if ($cart) {
             foreach ($cart as $id => $aantal) {
                 $product = ProductModel::getById($id);
-                if ($product && isset($product['product'])) {
+                if ($product) {
                     $product['aantal'] = $aantal;
                     $producten[] = $product;
                     $totaal += $product['prijs'] * $aantal;
@@ -29,7 +30,10 @@ class CartView
             <link rel="stylesheet" href="/M-V-C/styles/styles.css">
         </head>
         <body>
-        <?php require_once __DIR__ . '/header.php'; ?>
+        <?php
+        require_once __DIR__ . '/header.php';
+        HeaderView::render();
+        ?>
         <main>
             <h1>Shopping Cart</h1>
             <?php if (empty($producten)): ?>
@@ -50,7 +54,9 @@ class CartView
                 <div class="cart-total">
                     Totaal: €<?= number_format($totaal, 2) ?>
                 </div>
-                <button class="checkout-btn" type="button">Afrekenen</button>
+                <a href="/M-V-C/controllers/bedankt.php">
+                    <button class="checkout-btn" type="button">Afrekenen</button>
+                </a>
             <?php endif; ?>
         </main>
         <?php require_once __DIR__ . '/footer.php'; ?>

@@ -32,10 +32,13 @@ class ProductModel
         $db = new DBConnection();
         $conn = $db->connect();
 
-        $stmt = $conn->prepare("SELECT * FROM producten WHERE id = :id");
+        $stmt = $conn->prepare("SELECT product, prijs, omschrijving, foto, id FROM producten WHERE id = :id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Return false if not found, or the associative array if found
+        return $product ?: false;
     }
 
 

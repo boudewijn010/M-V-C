@@ -12,7 +12,10 @@ class aboutusView
             <link rel="stylesheet" type="text/css" href="/M-V-C/styles/styles.css">
         </head>
         <body>
-            <?php require_once("header.php"); ?>
+            <?php
+            require_once __DIR__ . '/header.php';
+            HeaderView::render();
+            ?>
             <main style="max-width: 700px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
                 <main
                         style="max-width: 700px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">

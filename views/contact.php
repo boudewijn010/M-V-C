@@ -12,7 +12,10 @@ class contactView
             <link rel="stylesheet" type="text/css" href="/M-V-C/styles/styles.css">
         </head>
         <body>
-        <?php require_once __DIR__ . '/header.php'; ?>
+        <?php
+        require_once __DIR__ . '/header.php';
+        HeaderView::render();
+        ?>
         <main style="max-width: 500px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
             <h1>Contact</h1>
             <p>Neem contact met ons op via onderstaand formulier.</p>

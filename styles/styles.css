@@ -234,3 +234,20 @@ h1 {
 .checkout-btn:hover {
   background: #218838;
 }
+.thankyou-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+.thankyou-message {
+  background: #fff;
+  padding: 40px 60px;
+  border-radius: 16px;
+  font-size: 2em;
+  color: #28a745;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  margin-bottom: 30px;
+}
