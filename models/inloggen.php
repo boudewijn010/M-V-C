@@ -11,7 +11,7 @@ try {
 
         if (empty($email) || empty($wachtwoord)) {
             throw new Exception("E-mail en wachtwoord zijn verplicht.");
-        }
+        }//tot hier controller
 
         $db = new DBConnection();
         $conn = $db->connect();
@@ -24,7 +24,7 @@ try {
         if ($gebruiker && password_verify($wachtwoord, $gebruiker["wachtwoord"])) {
             session_start();
             $_SESSION["gebruiker_id"] = $gebruiker["id"];
-            header("Location: /M-V-C/views/welkom.php");
+            header("Location: /M-V-C/views/welkom.php");//controller
             exit;
         } else {
             throw new Exception("Ongeldige e-mail of wachtwoord.");
@@ -37,5 +37,5 @@ try {
 }
 
 require_once("../views/inloggen.php");
-inlogView::render($error);
+inlogView::render($error);//controller
 ?>
