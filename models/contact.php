@@ -1,18 +1,14 @@
 <?php
-require_once __DIR__ . '/../models/DBconnection.php';
-class Contact
+require_once __DIR__ . '/DBconnection.php';
+
+class ContactModel
 {
-    private $db;
-
-    public function __construct($db)
+    public static function saveContact($naam, $email, $bericht)
     {
-        $this->db = $db;
-    }
+        $db = DBConnection::getInstance();
+        $conn = $db->connect();
 
-    public function saveContact($naam, $email, $bericht)
-    {
-        $stmt = $this->db->prepare("INSERT INTO contact (naam, email, bericht) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO contact (naam, email, bericht) VALUES (?, ?, ?)");
         return $stmt->execute([$naam, $email, $bericht]);
     }
 }
-?>

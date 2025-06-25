@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("../models/DBconnection.php");
+require_once("../models/inloggen.php");
 
 $error = "";
 
@@ -11,20 +12,13 @@ try {
 
         if (empty($email) || empty($wachtwoord)) {
             throw new Exception("E-mail en wachtwoord zijn verplicht.");
-        }//tot hier controller
+        }
 
-        $db = new DBConnection();
-        $conn = $db->connect();
+        $gebruiker = InloggenModel::checkLogin($email, $wachtwoord);
 
-        $stmt = $conn->prepare("SELECT * FROM gebruikers WHERE email = :email");
-        $stmt->bindParam(":email", $email);
-        $stmt->execute();
-        $gebruiker = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($gebruiker && password_verify($wachtwoord, $gebruiker["wachtwoord"])) {
-            session_start();
+        if ($gebruiker) {
             $_SESSION["gebruiker_id"] = $gebruiker["id"];
-            header("Location: /M-V-C/views/welkom.php");//controller
+            header("Location: /M-V-C/views/welkom.php");
             exit;
         } else {
             throw new Exception("Ongeldige e-mail of wachtwoord.");
@@ -37,5 +31,5 @@ try {
 }
 
 require_once("../views/inloggen.php");
-inlogView::render($error);//controller
+inlogView::render($error);
 ?>

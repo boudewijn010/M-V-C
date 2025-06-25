@@ -6,7 +6,7 @@ class ProductModel
 {
     public static function getAll()
     {
-        $db = new DBConnection();
+        $db = DBConnection::getInstance();
         $conn = $db->connect();
 
         $stmt = $conn->query("SELECT product, prijs, omschrijving, foto, id FROM producten");
@@ -15,7 +15,7 @@ class ProductModel
 
     public static function add($product, $prijs, $omschrijving, $foto)
     {
-        $db = new DBConnection();
+        $db = DBConnection::getInstance();
         $conn = $db->connect();
 
         $stmt = $conn->prepare("INSERT INTO producten (product, prijs, omschrijving, foto) VALUES (:product, :prijs, :omschrijving, :foto)");
@@ -29,7 +29,7 @@ class ProductModel
 
     public static function getById($id)
     {
-        $db = new DBConnection();
+        $db = DBConnection::getInstance();
         $conn = $db->connect();
 
         $stmt = $conn->prepare("SELECT product, prijs, omschrijving, foto, id FROM producten WHERE id = :id");
@@ -40,6 +40,4 @@ class ProductModel
         // Return false if not found, or the associative array if found
         return $product ?: false;
     }
-
-
 }
