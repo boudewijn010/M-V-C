@@ -6,23 +6,18 @@ require_once("../models/inloggen.php");
 $error = "";
 
 try {
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $email = $_POST["email"] ?? '';
-        $wachtwoord = $_POST["password"] ?? '';
+    if (empty($email) || empty($wachtwoord)) {
+        throw new Exception("E-mail en wachtwoord zijn verplicht.");
+    }
 
-        if (empty($email) || empty($wachtwoord)) {
-            throw new Exception("E-mail en wachtwoord zijn verplicht.");
-        }
+    $gebruiker = InloggenModel::checkLogin($email, $wachtwoord);
 
-        $gebruiker = InloggenModel::checkLogin($email, $wachtwoord);
-
-        if ($gebruiker) {
-            $_SESSION["gebruiker_id"] = $gebruiker["id"];
-            header("Location: /M-V-C/views/welkom.php");
-            exit;
-        } else {
-            throw new Exception("Ongeldige e-mail of wachtwoord.");
-        }
+    if ($gebruiker) {
+        $_SESSION["gebruiker_id"] = $gebruiker["id"];
+        header("Location: /M-V-C/views/welkom.php");
+        exit;
+    } else {
+        throw new Exception("Ongeldige e-mail of wachtwoord.");
     }
 } catch (PDOException $e) {
     $error = "Databasefout: " . $e->getMessage();
